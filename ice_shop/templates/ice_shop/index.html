@@ -1,0 +1,684 @@
+{% load static %}
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Frost — Холодные лакомства для теплых сердец. Мороженое ручной работы, джелато и замороженные десерты, приготовленные из местных ингредиентов.">
+  <meta name="keywords" content="мороженое, джелато, замороженные десерты, пекарня, кейтеринг, лакомства ручной работы">
+  <meta name="author" content="Frost Desserts">
+  <meta property="og:title" content="Frost — Холодные лакомства для теплых сердец">
+  <meta property="og:description" content="Мороженое ручной работы, джелато и замороженные десерты, приготовленные из местных ингредиентов.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Frost — Холодные лакомства для теплых сердец</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/templatemo-frost-style.css' %}">
+</head>
+<body>
+
+  <button class="hamburger" id="hamburger" aria-label="Открыть меню навигации" aria-expanded="false">
+    <div class="hamburger__lines">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </button>
+
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <aside class="sidebar" id="sidebar" role="navigation" aria-label="Главная навигация">
+    <div class="sidebar__brand">
+      <div class="sidebar__logo">Fr<span>o</span>st</div>
+      <div class="sidebar__tagline">Холодные лакомства для теплых сердец</div>
+    </div>
+
+    <nav class="sidebar__nav">
+      <ul>
+        <li><a href="#hero" class="active"><span class="nav-icon">&#9678;</span> Главная</a></li>
+        <li><a href="#flavors"><span class="nav-icon">&#10047;</span> Вкусы</a></li>
+        <li><a href="#builder"><span class="nav-icon">&#9733;</span> Создай свой</a></li>
+        <li><a href="#catering"><span class="nav-icon">&#9738;</span> Кейтеринг</a></li>
+        <li><a href="#seasonal"><span class="nav-icon">&#10053;</span> Сезонное</a></li>
+        <li><a href="#loyalty"><span class="nav-icon">&#10084;</span> Лояльность</a></li>
+      </ul>
+    </nav>
+
+    <div class="sidebar__footer">
+      <div class="sidebar__hours">
+        <strong>Часы работы</strong><br>
+        Пн – Пт: 11:00 – 21:00<br>
+        Сб – Вс: 10:00 – 22:00
+      </div>
+    </div>
+
+    <div class="sidebar__auth">
+      {% if user.is_authenticated %}
+        <div class="sidebar__user">
+          <span>👤</span>
+          <span>{{ user.username }}</span>
+        </div>
+        <a href="{% url 'logout' %}" class="sidebar__logout-btn">Выйти</a>
+      {% else %}
+        <a href="{% url 'signup' %}" class="sidebar__signup-btn">Sign Up</a>
+        <a href="{% url 'login' %}" class="sidebar__login-link">Войти</a>
+      {% endif %}
+    </div>
+
+  </aside>
+
+  <main class="main">
+
+    <section class="hero" id="hero">
+      <div class="hero__content">
+        <div class="hero__badge reveal">Сейчас в меню</div>
+        <h1 class="hero__title reveal reveal-delay-1">
+          Жизнь слишком коротка для<br><em>скучных десертов.</em>
+        </h1>
+        <p class="hero__subtitle reveal reveal-delay-2">
+          Мороженое и джелато ручной работы, которые мы готовим каждое утро из фермерского молока, сезонных фруктов с добавлением щепотки чего-то необычного.
+        </p>
+        <div class="hero__actions reveal reveal-delay-3">
+          <a href="#flavors" class="btn btn--primary">Смотреть вкусы</a>
+          <a href="#catering" class="btn btn--outline">Заказать тележку</a>
+        </div>
+      </div>
+
+      <div class="hero__deco" aria-hidden="true">
+        <div class="scoop scoop--strawberry">
+          <div class="scoop--highlight"></div>
+        </div>
+        <div class="scoop scoop--mint">
+          <div class="scoop--highlight"></div>
+        </div>
+        <div class="scoop scoop--vanilla">
+          <div class="scoop--highlight"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt flavors-section" id="flavors">
+      <div class="section__header reveal">
+        <span class="section__label">Палитра вкусов</span>
+        <h2 class="section__title">Выбери свой идеальный шарик</h2>
+        <p class="section__desc">От вечной классики до смелых экспериментов — каждый вкус начинается с уникального рецепта и настоящих цельных ингредиентов.</p>
+      </div>
+
+      <div class="marquee">
+        <div class="marquee__track">
+          <div class="flavor-card">
+            <div class="flavor-card__swatch" style="background: radial-gradient(circle at 35% 35%, #fce4b8, #e6c68a);"></div>
+            <div class="flavor-card__info">
+              <span class="flavor-card__type">Джелато</span>
+              <h3 class="flavor-card__name">Таитянская ваниль</h3>
+              <p class="flavor-card__desc">Стручки ванили единого происхождения, настоянные на заварном креме с органическими сливками. Насыщенный цветочный вкус без искусственных добавок.</p>
+            </div>
+          </div>
+
+          <div class="flavor-card">
+            <div class="flavor-card__tag">Популярное</div>
+            <div class="flavor-card__swatch" style="background: radial-gradient(circle at 35% 35%, #6b3a2a, #3e2118);"></div>
+            <div class="flavor-card__info">
+              <span class="flavor-card__type">Мороженое</span>
+              <h3 class="flavor-card__name">Трюфель из темного шоколада</h3>
+              <p class="flavor-card__desc">Бельгийский шоколад (70% какао) в плотной, тягучей основе с кусочками трюфеля ручной стружки.</p>
+            </div>
+          </div>
+
+          <div class="flavor-card">
+            <div class="flavor-card__swatch" style="background: radial-gradient(circle at 35% 35%, var(--sage-light), var(--sage-dark));"></div>
+            <div class="flavor-card__info">
+              <span class="flavor-card__type">Джелато</span>
+              <h3 class="flavor-card__name">Свежая мята с крошкой</h3>
+              <p class="flavor-card__desc">Настоящие листья перечной мяты (без экстрактов), смешанные с органическим молоком и кусочками темного шоколада от местного шоколатье.</p>
+            </div>
+          </div>
+
+          <div class="flavor-card">
+            <div class="flavor-card__tag">Сезонное</div>
+            <div class="flavor-card__swatch" style="background: radial-gradient(circle at 35% 35%, #c9b3d6, #9b7eb8);"></div>
+            <div class="flavor-card__info">
+              <span class="flavor-card__type">Джелато</span>
+              <h3 class="flavor-card__name">Лавандовый мед</h3>
+              <p class="flavor-card__desc">Сушеная французская лаванда, настоянная на луговом меде и медленно взбитая до шелковистого цветочного послевкусия.</p>
+            </div>
+          </div>
+
+          <div class="flavor-card">
+            <div class="flavor-card__swatch" style="background: radial-gradient(circle at 35% 35%, #a8d8ea, #6bb7d4);"></div>
+            <div class="flavor-card__info">
+              <span class="flavor-card__type">Сорбет</span>
+              <h3 class="flavor-card__name">Кокос и синяя спирулина</h3>
+              <p class="flavor-card__desc">Яркий безмолочный микс спирулины и сливочного кокосового молока. Тропический, освежающий и естественно синий.</p>
+            </div>
+          </div>
+
+          <div class="flavor-card">
+            <div class="flavor-card__swatch" style="background: radial-gradient(circle at 35% 35%, #d4a76a, #b8863e);"></div>
+            <div class="flavor-card__info">
+              <span class="flavor-card__type">Мороженое</span>
+              <h3 class="flavor-card__name">Соленая карамель с пеканом</h3>
+              <p class="flavor-card__desc">Домашняя карамель с добавлением морской соли Малдон и засахаренных орехов пекан. Сладко-соленая классика.</p>
+            </div>
+          </div>
+
+          <div class="flavor-card">
+            <div class="flavor-card__swatch" style="background: radial-gradient(circle at 35% 35%, #fce4b8, #e6c68a);"></div>
+            <div class="flavor-card__info">
+              <span class="flavor-card__type">Джелато</span>
+              <h3 class="flavor-card__name">Таитянская ваниль</h3>
+              <p class="flavor-card__desc">Стручки ванили единого происхождения, настоянные на заварном креме с органическими сливками. Насыщенный цветочный вкус без искусственных добавок.</p>
+            </div>
+          </div>
+
+          <div class="flavor-card">
+            <div class="flavor-card__tag">Популярное</div>
+            <div class="flavor-card__swatch" style="background: radial-gradient(circle at 35% 35%, #6b3a2a, #3e2118);"></div>
+            <div class="flavor-card__info">
+              <span class="flavor-card__type">Мороженое</span>
+              <h3 class="flavor-card__name">Трюфель из темного шоколада</h3>
+              <p class="flavor-card__desc">Бельгийский шоколад (70% какао) в плотной, тягучей основе с кусочками трюфеля ручной стружки.</p>
+            </div>
+          </div>
+
+          <div class="flavor-card">
+            <div class="flavor-card__swatch" style="background: radial-gradient(circle at 35% 35%, var(--sage-light), var(--sage-dark));"></div>
+            <div class="flavor-card__info">
+              <span class="flavor-card__type">Джелато</span>
+              <h3 class="flavor-card__name">Свежая мята с крошкой</h3>
+              <p class="flavor-card__desc">Настоящие листья перечной мяты (без экстрактов), смешанные с органическим молоком и кусочками темного шоколада от местного шоколатье.</p>
+            </div>
+          </div>
+
+          <div class="flavor-card">
+            <div class="flavor-card__tag">Сезонное</div>
+            <div class="flavor-card__swatch" style="background: radial-gradient(circle at 35% 35%, #c9b3d6, #9b7eb8);"></div>
+            <div class="flavor-card__info">
+              <span class="flavor-card__type">Джелато</span>
+              <h3 class="flavor-card__name">Лавандовый мед</h3>
+              <p class="flavor-card__desc">Сушеная французская лаванда, настоянная на луговом меде и медленно взбитая до шелковистого цветочного послевкусия.</p>
+            </div>
+          </div>
+
+          <div class="flavor-card">
+            <div class="flavor-card__swatch" style="background: radial-gradient(circle at 35% 35%, #a8d8ea, #6bb7d4);"></div>
+            <div class="flavor-card__info">
+              <span class="flavor-card__type">Сорбет</span>
+              <h3 class="flavor-card__name">Кокос и синяя спирулина</h3>
+              <p class="flavor-card__desc">Яркий безмолочный микс спирулины и сливочного кокосового молока. Тропический, освежающий и естественно синий.</p>
+            </div>
+          </div>
+
+          <div class="flavor-card">
+            <div class="flavor-card__swatch" style="background: radial-gradient(circle at 35% 35%, #d4a76a, #b8863e);"></div>
+            <div class="flavor-card__info">
+              <span class="flavor-card__type">Мороженое</span>
+              <h3 class="flavor-card__name">Соленая карамель с пеканом</h3>
+              <p class="flavor-card__desc">Домашняя карамель с добавлением морской соли Малдон и засахаренных орехов пекан. Сладко-соленая классика.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="marquee__track marquee__track--reverse">
+          <div class="flavor-card">
+            <div class="flavor-card__tag">Новинка</div>
+            <div class="flavor-card__swatch" style="background: radial-gradient(circle at 35% 35%, #f4a4b8, #e07a8a);"></div>
+            <div class="flavor-card__info">
+              <span class="flavor-card__type">Сорбет</span>
+              <h3 class="flavor-card__name">Клубника и базилик</h3>
+              <p class="flavor-card__desc">Спелая летняя клубника встречается со свежим садовым базиликом в легком и ароматном веганском сорбете без молока.</p>
+            </div>
+          </div>
+
+          <div class="flavor-card">
+            <div class="flavor-card__swatch" style="background: radial-gradient(circle at 35% 35%, #8b6f4e, #5c4632);"></div>
+            <div class="flavor-card__info">
+              <span class="flavor-card__type">Мороженое</span>
+              <h3 class="flavor-card__name">Эспрессо с крошкой печенья</h3>
+              <p class="flavor-card__desc">Мороженое с двойным эспрессо, прослойками из раскрошенного шоколадного печенья и карамельной лентой.</p>
+            </div>
+          </div>
+
+          <div class="flavor-card">
+            <div class="flavor-card__swatch" style="background: radial-gradient(circle at 35% 35%, #e8d5a3, #c4a96a);"></div>
+            <div class="flavor-card__info">
+              <span class="flavor-card__type">Джелато</span>
+              <h3 class="flavor-card__name">Фисташковый крем</h3>
+              <p class="flavor-card__desc">Обжаренные сицилийские фисташки в шелковистом джелато. Ореховое, сливочное и по-настоящему аутентичное.</p>
+            </div>
+          </div>
+
+          <div class="flavor-card">
+            <div class="flavor-card__tag">Веганское</div>
+            <div class="flavor-card__swatch" style="background: radial-gradient(circle at 35% 35%, #f7c59f, #ef8e38);"></div>
+            <div class="flavor-card__info">
+              <span class="flavor-card__type">Сорбет</span>
+              <h3 class="flavor-card__name">Манго и маракуйя</h3>
+              <p class="flavor-card__desc">Спелое манго сорта Альфонсо и терпкая маракуйя, взбитые в яркий тропический безмолочный сорбет.</p>
+            </div>
+          </div>
+
+          <div class="flavor-card">
+            <div class="flavor-card__swatch" style="background: radial-gradient(circle at 35% 35%, #f0c2c2, #d4868a);"></div>
+            <div class="flavor-card__info">
+              <span class="flavor-card__type">Мороженое</span>
+              <h3 class="flavor-card__name">Малина и белый шоколад</h3>
+              <p class="flavor-card__desc">Терпкий малиновый джем в мороженом из нежного белого шоколада с хрустящими кусочками сублимированных ягод.</p>
+            </div>
+          </div>
+
+          <div class="flavor-card">
+            <div class="flavor-card__swatch" style="background: radial-gradient(circle at 35% 35%, #b6d7a8, #7ab55c);"></div>
+            <div class="flavor-card__info">
+              <span class="flavor-card__type">Джелато</span>
+              <h3 class="flavor-card__name">Матча и черный кунжут</h3>
+              <p class="flavor-card__desc">Церемониальная матча, смешанная с пастой из обжаренного черного кунжута. Землистое, ореховое и глубокое вкусовое сочетание.</p>
+            </div>
+          </div>
+
+          <div class="flavor-card">
+            <div class="flavor-card__tag">Новинка</div>
+            <div class="flavor-card__swatch" style="background: radial-gradient(circle at 35% 35%, #f4a4b8, #e07a8a);"></div>
+            <div class="flavor-card__info">
+              <span class="flavor-card__type">Сорбет</span>
+              <h3 class="flavor-card__name">Клубника и базилик</h3>
+              <p class="flavor-card__desc">Спелая летняя клубника встречается со свежим садовым базиликом в легком и ароматном веганском сорбете без молока.</p>
+            </div>
+          </div>
+
+          <div class="flavor-card">
+            <div class="flavor-card__swatch" style="background: radial-gradient(circle at 35% 35%, #8b6f4e, #5c4632);"></div>
+            <div class="flavor-card__info">
+              <span class="flavor-card__type">Мороженое</span>
+              <h3 class="flavor-card__name">Эспрессо с крошкой печенья</h3>
+              <p class="flavor-card__desc">Мороженое с двойным эспрессо, прослойками из раскрошенного шоколадного печенья и карамельной лентой.</p>
+            </div>
+          </div>
+
+          <div class="flavor-card">
+            <div class="flavor-card__swatch" style="background: radial-gradient(circle at 35% 35%, #e8d5a3, #c4a96a);"></div>
+            <div class="flavor-card__info">
+              <span class="flavor-card__type">Джелато</span>
+              <h3 class="flavor-card__name">Фисташковый крем</h3>
+              <p class="flavor-card__desc">Обжаренные сицилийские фисташки в шелковистом джелато. Ореховое, сливочное и по-настоящему аутентичное.</p>
+            </div>
+          </div>
+
+          <div class="flavor-card">
+            <div class="flavor-card__tag">Веганское</div>
+            <div class="flavor-card__swatch" style="background: radial-gradient(circle at 35% 35%, #f7c59f, #ef8e38);"></div>
+            <div class="flavor-card__info">
+              <span class="flavor-card__type">Сорбет</span>
+              <h3 class="flavor-card__name">Манго и маракуйя</h3>
+              <p class="flavor-card__desc">Спелое манго сорта Альфонсо и терпкая маракуйя, взбитые в яркий тропический безмолочный сорбет.</p>
+            </div>
+          </div>
+
+          <div class="flavor-card">
+            <div class="flavor-card__swatch" style="background: radial-gradient(circle at 35% 35%, #f0c2c2, #d4868a);"></div>
+            <div class="flavor-card__info">
+              <span class="flavor-card__type">Мороженое</span>
+              <h3 class="flavor-card__name">Малина и белый шоколад</h3>
+              <p class="flavor-card__desc">Терпкий малиновый джем в мороженом из нежного белого шоколада с хрустящими кусочками сублимированных ягод.</p>
+            </div>
+          </div>
+
+          <div class="flavor-card">
+            <div class="flavor-card__swatch" style="background: radial-gradient(circle at 35% 35%, #b6d7a8, #7ab55c);"></div>
+            <div class="flavor-card__info">
+              <span class="flavor-card__type">Джелато</span>
+              <h3 class="flavor-card__name">Матча и черный кунжут</h3>
+              <p class="flavor-card__desc">Церемониальная матча, смешанная с пастой из обжаренного черного кунжута. Землистое, ореховое и глубокое вкусовое сочетание.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section builder" id="builder">
+      <div class="section__header reveal">
+        <span class="section__label">Создай свой десерт</span>
+        <h2 class="section__title">Твой сандей, твои правила</h2>
+        <p class="section__desc">Пройди четыре шага создания идеального сандея на кассе или закажи заранее. Более 2000 возможных комбинаций.</p>
+      </div>
+
+      <div class="builder__layout">
+        <div class="builder__steps">
+          <div class="builder-step reveal">
+            <div class="builder-step__num">1</div>
+            <div>
+              <h3 class="builder-step__title">Выбери основу</h3>
+              <p class="builder-step__text">Мороженое, джелато, замороженный йогурт или безмолочный сорбет. Возьми один, два или все три сразу для идеальной порции.</p>
+            </div>
+          </div>
+
+          <div class="builder-step reveal reveal-delay-1">
+            <div class="builder-step__num">2</div>
+            <div>
+              <h3 class="builder-step__title">Выбери подачу</h3>
+              <p class="builder-step__text">Классический вафельный рожок, съедобная креманка ручной работы, стеклянная чаша или наш фирменный мега-рожок в шоколаде.</p>
+            </div>
+          </div>
+
+          <div class="builder-step reveal reveal-delay-2">
+            <div class="builder-step__num">3</div>
+            <div>
+              <h3 class="builder-step__title">Добавь топпинги</h3>
+              <p class="builder-step__text">Крошка Oreo, жареный кокос, карамелизованный пекан, свежие ягоды, кусочки брауни, моти и еще 20 других вариантов.</p>
+            </div>
+          </div>
+
+          <div class="builder-step reveal reveal-delay-3">
+            <div class="builder-step__num">4</div>
+            <div>
+              <h3 class="builder-step__title">Сиропы и украшения</h3>
+              <p class="builder-step__text">Горячий шоколад, карамельный соус, сироп матча, малиновый кули или мед — плюс щепотка морской соли или съедобные блестки.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="builder__preview reveal">
+          <div class="builder__preview-bowl">
+            <div class="builder__preview-scoop1"></div>
+            <div class="builder__preview-scoop2"></div>
+            <div class="builder__preview-scoop3"></div>
+          </div>
+          <p class="builder__preview-text">Собери свой сандей</p>
+          <p class="builder__preview-price">От $7.50</p>
+          <p class="builder__preview-note">Основа + 3 топпинга включены</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="catering">
+      <div class="section__header reveal">
+        <span class="section__label">Аренда тележки для кейтеринга</span>
+        <h2 class="section__title">Привезем сладости к вам</h2>
+        <p class="section__desc">Наши винтажные тележки полностью укомплектованы выбранными вами вкусами, дружелюбным мороженщиком и всеми топпингами, о которых только могут мечтать ваши гости.</p>
+      </div>
+
+
+
+        <div class="catering__grid">
+  {% for ice_cream in products %}
+    <a href="{% url 'product_detail' pk=ice_cream.pk %}" class="cart-card-link" style="text-decoration: none; color: inherit;">
+
+      <div class="cart-card reveal">
+        <div class="cart-card__visual">
+          <img src="{{ ice_cream.photo.url }}" alt="{{ ice_cream.title }}" loading="lazy">
+          <span class="cart-card__visual-label">Камерная</span>
+        </div>
+        <div class="cart-card__body">
+          <h3 class="cart-card__name">{{ ice_cream.title }}</h3>
+          <p class="cart-card__desc">{{ ice_cream.description }}</p>
+          <div class="cart-card__details">
+            <span class="cart-card__detail">До 30 гостей</span>
+            <span class="cart-card__detail">3 вкуса</span>
+            <span class="cart-card__detail">2 часа</span>
+          </div>
+          <div class="cart-card__price">{{ ice_cream.price }} <small>/ мероприятие</small></div>
+        </div>
+      </div>
+
+    </a>
+  {% endfor %}
+</div>
+        <div class="cart-card reveal">
+          <div class="cart-card__visual">
+            <img src="{% static 'images/the-mini-scoop.avif' %}" alt="Тележка с мороженым для небольшой вечеринки" loading="lazy">
+            <span class="cart-card__visual-label">Камерная</span>
+          </div>
+          <div class="cart-card__body">
+            <h3 class="cart-card__name">Мини-тележка</h3>
+            <p class="cart-card__desc">Идеально подходит для дней рождения, бэби-шауэров и небольших офисных праздников. Компактная тележка, максимум вкуса.</p>
+            <div class="cart-card__details">
+              <span class="cart-card__detail">До 30 гостей</span>
+              <span class="cart-card__detail">3 вкуса</span>
+              <span class="cart-card__detail">2 часа</span>
+            </div>
+            <div class="cart-card__price">$350 <small>/ мероприятие</small></div>
+          </div>
+        </div>
+
+        <div class="cart-card reveal reveal-delay-1">
+          <div class="cart-card__visual">
+            <img src="{% static 'images/the-classic-cart.avif' %}" alt="Винтажная тележка с мороженым на мероприятии на открытом воздухе" loading="lazy">
+            <span class="cart-card__visual-label">Самая популярная</span>
+          </div>
+          <div class="cart-card__body">
+            <h3 class="cart-card__name">Классическая тележка</h3>
+            <p class="cart-card__desc">Наша фирменная винтажная тележка. Идеальна для свадеб, корпоративных мероприятий и фестивалей на выходных.</p>
+            <div class="cart-card__details">
+              <span class="cart-card__detail">До 100 гостей</span>
+              <span class="cart-card__detail">6 вкусов</span>
+              <span class="cart-card__detail">3 часа</span>
+              <span class="cart-card__detail">Бар топпингов</span>
+            </div>
+            <div class="cart-card__price">$750 <small>/ мероприятие</small></div>
+          </div>
+        </div>
+
+        <div class="cart-card reveal reveal-delay-2">
+          <div class="cart-card__visual">
+            <img src="{% static 'images/the-grand-parlor.avif' %}" alt="Элегантная подача десертов на премиальном мероприятии" loading="lazy">
+            <span class="cart-card__visual-label">Премиум</span>
+          </div>
+          <div class="cart-card__body">
+            <h3 class="cart-card__name">Гранд-парлор</h3>
+            <p class="cart-card__desc">Полное погружение — двойная станция с джелато, вафельным баром и выделенным координатором мероприятия.</p>
+            <div class="cart-card__details">
+              <span class="cart-card__detail">До 250 гостей</span>
+              <span class="cart-card__detail">10 вкусов</span>
+              <span class="cart-card__detail">4 часа</span>
+              <span class="cart-card__detail">Вафельный бар</span>
+              <span class="cart-card__detail">Координатор</span>
+            </div>
+            <div class="cart-card__price">$1,400 <small>/ мероприятие</small></div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="section" id="seasonal">
+      <div class="section__header reveal">
+        <span class="section__label">Лимитированная серия</span>
+        <h2 class="section__title">Сезонные вкусы, свежие и мимолетные</h2>
+        <p class="section__desc">Каждый сезон приносит новую линейку вкусов, вдохновленную тем, что созрело, витает в воздухе и вызывает легкую ностальгию.</p>
+      </div>
+
+      <div class="seasonal-tabs reveal" role="tablist">
+        <button class="seasonal-tab is-active" data-season="spring" role="tab" aria-selected="true" aria-controls="panel-spring">
+          <span class="seasonal-tab__icon" aria-hidden="true">&#127800;</span> Весна
+        </button>
+        <button class="seasonal-tab" data-season="summer" role="tab" aria-selected="false" aria-controls="panel-summer">
+          <span class="seasonal-tab__icon" aria-hidden="true">&#9728;</span> Лето
+        </button>
+        <button class="seasonal-tab" data-season="autumn" role="tab" aria-selected="false" aria-controls="panel-autumn">
+          <span class="seasonal-tab__icon" aria-hidden="true">&#127810;</span> Осень
+        </button>
+        <button class="seasonal-tab" data-season="winter" role="tab" aria-selected="false" aria-controls="panel-winter">
+          <span class="seasonal-tab__icon" aria-hidden="true">&#10052;</span> Зима
+        </button>
+      </div>
+
+      <div class="seasonal-panels reveal">
+
+        <div class="seasonal-panel is-active" id="panel-spring" role="tabpanel">
+          <div class="seasonal-panel__visual">
+            <img src="{% static 'images/spring-collection.avif' %}" alt="Миндальное джелато с лепестками сакуры" loading="lazy">
+            <span class="seasonal-panel__badge">Доступно с марта по май</span>
+          </div>
+          <div class="seasonal-panel__details">
+            <span class="seasonal-panel__season-label">Весенняя коллекция</span>
+            <h3 class="seasonal-panel__name">Миндаль и цветение сакуры</h3>
+            <p class="seasonal-panel__desc">Цветочное миндальное джелато, украшенное засахаренными лепестками сакуры и легкими нотками розовой воды. Нежное и невероятно ароматное — как прогулка по цветущему саду.</p>
+            <div class="seasonal-panel__meta">
+              <span class="seasonal-panel__meta-tag"><span>&#127846;</span> Джелато</span>
+              <span class="seasonal-panel__meta-tag"><span>&#10024;</span> Ограниченная партия</span>
+              <span class="seasonal-panel__meta-tag"><span>&#127793;</span> Содержит орехи</span>
+            </div>
+            <a href="#hero" class="btn btn--primary seasonal-panel__cta">Попробовать сейчас</a>
+          </div>
+        </div>
+
+        <div class="seasonal-panel" id="panel-summer" role="tabpanel">
+          <div class="seasonal-panel__visual">
+            <img src="{% static 'images/summer-collection.avif' %}" alt="Сорбет из манго, чили и лайма с тропическими фруктами" loading="lazy">
+            <span class="seasonal-panel__badge">Доступно с июня по август</span>
+          </div>
+          <div class="seasonal-panel__details">
+            <span class="seasonal-panel__season-label">Летняя коллекция</span>
+            <h3 class="seasonal-panel__name">Манго, чили и лайм</h3>
+            <p class="seasonal-panel__desc">Сладкий сорбет из манго сорта Альфонсо, присыпанный приправой Тахин (чили-лайм) и крошкой из цедры лайма. Там, где тропическая острота встречается с замороженной сладостью — наш самый ожидаемый вкус.</p>
+            <div class="seasonal-panel__meta">
+              <span class="seasonal-panel__meta-tag"><span>&#127847;</span> Сорбет</span>
+              <span class="seasonal-panel__meta-tag"><span>&#127793;</span> Без молока</span>
+              <span class="seasonal-panel__meta-tag"><span>&#127798;</span> Легкая острота</span>
+            </div>
+            <a href="#hero" class="btn btn--primary seasonal-panel__cta">Попробовать сейчас</a>
+          </div>
+        </div>
+
+        <div class="seasonal-panel" id="panel-autumn" role="tabpanel">
+          <div class="seasonal-panel__visual">
+            <img src="{% static 'images/autumn-collection.avif' %}" alt="Тыквенное мороженое с пряностями" loading="lazy">
+            <span class="seasonal-panel__badge">Доступно с сентября по ноябрь</span>
+          </div>
+          <div class="seasonal-panel__details">
+            <span class="seasonal-panel__season-label">Осенняя коллекция</span>
+            <h3 class="seasonal-panel__name">Тыква и чай масала</h3>
+            <p class="seasonal-panel__desc">Пряное тыквенное мороженое, закрученное спиралью с карамелью на основе чая масала и посыпанное поджаренными тыквенными семечками. Уютное, согревающее и идеальный повод заказать еще шарик.</p>
+            <div class="seasonal-panel__meta">
+              <span class="seasonal-panel__meta-tag"><span>&#127846;</span> Мороженое</span>
+              <span class="seasonal-panel__meta-tag"><span>&#10024;</span> Выбор гостей</span>
+              <span class="seasonal-panel__meta-tag"><span>&#127869;</span> Содержит молоко</span>
+            </div>
+            <a href="#hero" class="btn btn--primary seasonal-panel__cta">Попробовать сейчас</a>
+          </div>
+        </div>
+
+        <div class="seasonal-panel" id="panel-winter" role="tabpanel">
+          <div class="seasonal-panel__visual">
+            <img src="{% static 'images/winter-collection.avif' %}" alt="Мятный брауни с кусочками шоколада" loading="lazy">
+            <span class="seasonal-panel__badge">Доступно с декабря по февраль</span>
+          </div>
+          <div class="seasonal-panel__details">
+            <span class="seasonal-panel__season-label">Зимняя коллекция</span>
+            <h3 class="seasonal-panel__name">Мятный брауни</h3>
+            <p class="seasonal-panel__desc">Мятное мороженое из темного шоколада, щедро наполненное тягучими кусочками брауни и осколками белого шоколада с перечной мятой. Праздничное удовольствие в каждом кусочке.</p>
+            <div class="seasonal-panel__meta">
+              <span class="seasonal-panel__meta-tag"><span>&#127846;</span> Мороженое</span>
+              <span class="seasonal-panel__meta-tag"><span>&#127876;</span> Праздничный спецвыпуск</span>
+              <span class="seasonal-panel__meta-tag"><span>&#10024;</span> Ограниченная партия</span>
+            </div>
+            <a href="#hero" class="btn btn--primary seasonal-panel__cta">Попробовать сейчас</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section section--alt loyalty" id="loyalty">
+      <div class="section__header reveal">
+        <span class="section__label">Награды Frost</span>
+        <h2 class="section__title">Каждый шарик приближает к цели</h2>
+        <p class="section__desc">Возьмите карточку со штампами при следующем визите. Десять штампов дают право на бесплатный шарик, а также приятные бонусы по пути.</p>
+      </div>
+
+      <div class="loyalty__layout">
+        <div class="loyalty__info reveal">
+          <div class="loyalty__perks">
+            <div class="perk">
+              <div class="perk__icon">&#10003;</div>
+              <p class="perk__text"><strong>5-й штамп:</strong> Бесплатный дополнительный топпинг к любому сандею или рожку — да, смело добавляйте кусочки брауни.</p>
+            </div>
+            <div class="perk">
+              <div class="perk__icon">&#10003;</div>
+              <p class="perk__text"><strong>10-й штамп:</strong> Один бесплатный шарик любого вкуса, включая сезонные и лимитированные серии.</p>
+            </div>
+            <div class="perk">
+              <div class="perk__icon">&#10003;</div>
+              <p class="perk__text"><strong>Бонус на день рождения:</strong> Покажите удостоверение личности в месяц вашего дня рождения и получите бесплатный вафельный рожок в течение всей недели.</p>
+            </div>
+            <div class="perk">
+              <div class="perk__icon">&#10003;</div>
+              <p class="perk__text"><strong>Награда за приглашение:</strong> Приведите друга, который тоже начнет собирать штампы, и вы оба получите по бонусному штампу.</p>
+            </div>
+          </div>
+
+          <a href="#hero" class="btn btn--sage" style="margin-top: 2rem;">Начать копить</a>
+        </div>
+
+        <div class="stamp-card reveal reveal-delay-1">
+          <div class="stamp-card__header">
+            <span class="stamp-card__title">Ваша карта</span>
+            <span class="stamp-card__count">7 / 10</span>
+          </div>
+          <div class="stamp-card__grid">
+            <div class="stamp stamp--filled">&#127846;</div>
+            <div class="stamp stamp--filled">&#127846;</div>
+            <div class="stamp stamp--filled">&#127846;</div>
+            <div class="stamp stamp--filled">&#127846;</div>
+            <div class="stamp stamp--reward stamp--filled">&#9733;</div>
+            <div class="stamp stamp--filled">&#127846;</div>
+            <div class="stamp stamp--filled">&#127846;</div>
+            <div class="stamp">&#127846;</div>
+            <div class="stamp">&#127846;</div>
+            <div class="stamp stamp--reward">FREE</div>
+          </div>
+          <p class="stamp-card__footer">Осталось 3 шарика до бесплатного угощения!</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer__top">
+        <div>
+          <div class="footer__brand">Fr<span>o</span>st</div>
+          <p class="footer__copy">Мороженое и джелато ручной работы, которые мы готовим каждый день на нашей кухне на Оук-стрит. Сделано с любовью, подается с улыбкой.</p>
+        </div>
+
+        <div class="footer__links">
+          <div class="footer__col">
+            <h4>Меню</h4>
+            <ul>
+              <li><a href="#flavors">Вкусы</a></li>
+              <li><a href="#builder">Создай свой</a></li>
+              <li><a href="#seasonal">Сезонные вкусы</a></li>
+              <li><a href="#catering">Кейтеринг</a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4>Компания</h4>
+            <ul>
+              <li><a href="#">Наша история</a></li>
+              <li><a href="#">Поставщики</a></li>
+              <li><a href="#">Вакансии</a></li>
+              <li><a href="#">Пресса</a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4>Связь</h4>
+            <ul>
+              <li><a href="https://x.com/minthu" target="_blank">Наш X</a></li>
+              <li><a href="#">Facebook</a></li>
+              <li><a href="#">Instagram</a></li>
+              <li><a href="#"><span class="__cf_email__" data-cfemail="8fe7eae3e3e0cfe9fde0fcfba1ece0">[email&#160;protected]</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; 2026 Frost Desserts. Все права защищены. Дизайн от <a href="https://templatemo.com" target="_blank" rel="noopener noreferrer">TemplateMo</a></p>
+      </div>
+    </footer>
+
+  </main>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script src="{% static 'js/templatemo-frost-script.js' %}"></script>
+</body>
+</html>

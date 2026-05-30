@@ -1,0 +1,32 @@
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ ice_cream.title }}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container" style="padding: 50px; max-width: 800px; margin: 0 auto;">
+        <a href="{% url 'index' %}" style="text-decoration: none; color: #555;">← Назад к меню</a>
+
+        <div class="detail-card" style="margin-top: 30px; display: flex; gap: 40px;">
+            <div class="detail-visual" style="flex: 1;">
+                <img src="{{ ice_cream.photo.url }}" alt="{{ ice_cream.title }}" style="width: 100%; border-radius: 12px;">
+            </div>
+
+            <div class="detail-body" style="flex: 1;">
+                <h1>{{ ice_cream.title }}</h1>
+                <p class="desc" style="font-size: 1.2rem; color: #666;">{{ ice_cream.description }}</p>
+
+                <div class="price" style="font-size: 2rem; font-weight: bold; margin: 20px 0;">
+                    {{ ice_cream.price }} руб.
+                </div>
+
+                <button style="padding: 15px 30px; background: #ff6b6b; color: white; border: none; border-radius: 8px; cursor: pointer;">
+                    Заказать на мероприятие
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frost | Войти</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #f8f3ea, #fffdf9);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+      color: #2f3158;
+      padding: 30px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1350px;
+      display: grid;
+      grid-template-columns: 1fr 520px;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .left { position: relative; padding: 40px; }
+
+    .logo { font-size: 64px; font-weight: 700; font-family: 'Playfair Display', serif; margin-bottom: 10px; }
+    .logo span { color: #f07d63; }
+
+    .subtitle {
+      color: #5a8d7d; font-size: 18px; line-height: 1.6;
+      margin-bottom: 60px; text-transform: uppercase; letter-spacing: 1px;
+    }
+
+    .title {
+      font-size: 78px; line-height: 1.05;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 30px; max-width: 700px;
+    }
+    .title span { color: #f07d63; font-style: italic; }
+
+    .description {
+      max-width: 560px; line-height: 1.9;
+      color: #5f627e; font-size: 19px; margin-bottom: 50px;
+    }
+
+    .features { display: flex; gap: 30px; flex-wrap: wrap; }
+    .feature { width: 180px; }
+
+    .icon {
+      width: 70px; height: 70px; border-radius: 50%;
+      background: #fff; display: flex; align-items: center;
+      justify-content: center; font-size: 30px;
+      box-shadow: 0 10px 25px rgba(0,0,0,.08); margin-bottom: 15px;
+    }
+    .feature h3 { margin-bottom: 10px; font-size: 18px; }
+    .feature p  { color: #6f728f; line-height: 1.7; font-size: 14px; }
+
+    .ball { position: absolute; border-radius: 50%; filter: blur(1px); z-index: -1; }
+    .pink   { width:260px; height:260px; background:#f6a0a5; bottom:-60px;  left:-40px;  }
+    .green  { width:220px; height:220px; background:#a7d1b7; bottom:-80px;  left:140px;  }
+    .yellow { width:240px; height:240px; background:#f4e4bc; bottom:-120px; left:300px;  }
+
+    /* ── Card ── */
+    .card {
+      background: rgba(255,255,255,.82);
+      backdrop-filter: blur(15px);
+      border-radius: 32px;
+      padding: 45px;
+      box-shadow: 0 20px 50px rgba(0,0,0,.08);
+      border: 1px solid rgba(255,255,255,.4);
+    }
+
+    .card-header { text-align: center; margin-bottom: 35px; }
+    .card-header .emoji { font-size: 52px; display: block; margin-bottom: 12px; }
+    .card-header h2 { font-size: 44px; color: #2f3158; margin-bottom: 6px; }
+    .card-header p  { color: #8a8daa; font-size: 15px; }
+
+    .input-group { margin-bottom: 24px; }
+    .input-group label {
+      display: block; margin-bottom: 10px;
+      font-weight: 600; color: #3c3f66;
+    }
+
+    .input-box input {
+      width: 100%;
+      padding: 18px 20px;
+      border-radius: 18px;
+      border: 2px solid #ececf3;
+      font-size: 16px;
+      font-family: 'Montserrat', sans-serif;
+      outline: none;
+      transition: .3s;
+      background: #fff;
+      color: #2f3158;
+    }
+    .input-box input:focus {
+      border-color: #6aa68d;
+      box-shadow: 0 0 0 4px rgba(106,166,141,.15);
+    }
+    .input-box input::placeholder { color: #b0b3c8; }
+
+    /* Error messages */
+    .errorlist { list-style: none; margin-top: 8px; }
+    .errorlist li {
+      color: #e05858;
+      font-size: 13px;
+      padding: 6px 12px;
+      background: #fff0f0;
+      border-radius: 8px;
+      margin-top: 4px;
+    }
+    .errorlist li::before { content: '⚠ '; }
+
+    .non-field-error {
+      background: #fff0f0;
+      border-radius: 14px;
+      padding: 14px 18px;
+      margin-bottom: 22px;
+      color: #c0392b;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    /* Submit button */
+    .btn {
+      width: 100%;
+      padding: 18px;
+      border: none;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #4c9c7d, #2d7c63);
+      color: white;
+      font-size: 18px;
+      font-weight: 600;
+      font-family: 'Montserrat', sans-serif;
+      cursor: pointer;
+      transition: .3s;
+      margin-top: 10px;
+      letter-spacing: 0.3px;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(45,124,99,.3);
+    }
+    .btn:active { transform: translateY(0); }
+
+    .bottom-text {
+      text-align: center;
+      margin-top: 28px;
+      color: #888;
+      font-size: 15px;
+    }
+    .bottom-text a {
+      color: #2d7c63;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .bottom-text a:hover { text-decoration: underline; }
+
+    /* Responsive */
+    @media (max-width: 1100px) {
+      .container { grid-template-columns: 1fr; }
+      .left { display: none; }
+      .card { max-width: 600px; margin: auto; }
+    }
+    @media (max-width: 650px) {
+      body { padding: 15px; }
+      .card { padding: 30px 20px; }
+      .card-header h2 { font-size: 34px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- LEFT SIDE -->
+  <div class="left">
+    <div class="logo">Fr<span>o</span>st</div>
+    <div class="subtitle">ХОЛОДНЫЕ ЛАКОМСТВА <br> ДЛЯ ТЕПЛЫХ СЕРДЕЦ</div>
+    <div class="title">
+      С возвращением, <br>
+      <span>любитель мороженого.</span>
+    </div>
+    <div class="description">
+      Войдите, чтобы отслеживать любимые вкусы, копить баллы лояльности и заказывать тележку для мероприятий.
+    </div>
+    <div class="features">
+      <div class="feature">
+        <div class="icon">🍃</div>
+        <h3>Натурально</h3>
+        <p>Свежие ингредиенты без искусственных добавок.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">❤</div>
+        <h3>С любовью</h3>
+        <p>Каждый рецепт создан с вниманием к деталям.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">❄</div>
+        <h3>Всегда свежо</h3>
+        <p>Готовим небольшими партиями каждый день.</p>
+      </div>
+    </div>
+    <div class="ball pink"></div>
+    <div class="ball green"></div>
+    <div class="ball yellow"></div>
+  </div>
+
+  <!-- CARD -->
+  <div class="card">
+    <div class="card-header">
+      <span class="emoji">🍦</span>
+      <h2>Войти</h2>
+      <p>Рады видеть вас снова!</p>
+    </div>
+
+    <form method="POST">
+      {% csrf_token %}
+
+      {% if form.non_field_errors %}
+        <div class="non-field-error">{{ form.non_field_errors.as_text }}</div>
+      {% endif %}
+
+      <div class="input-group">
+        <label for="{{ form.username.id_for_label }}">Имя пользователя</label>
+        <div class="input-box">
+          {{ form.username }}
+        </div>
+        {{ form.username.errors }}
+      </div>
+
+      <div class="input-group">
+        <label for="{{ form.password.id_for_label }}">Пароль</label>
+        <div class="input-box">
+          {{ form.password }}
+        </div>
+        {{ form.password.errors }}
+      </div>
+
+      <button type="submit" class="btn">Войти в аккаунт</button>
+
+      <div class="bottom-text">
+        Нет аккаунта? <a href="{% url 'signup' %}">Зарегистрироваться</a>
+      </div>
+    </form>
+  </div>
+
+</div>
+
+</body>
+</html>
